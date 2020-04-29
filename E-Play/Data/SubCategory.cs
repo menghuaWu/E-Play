@@ -22,7 +22,6 @@ namespace E_Play.Data
         
 
         public int MainCategoryId { get; set; }
-        public int ProductId { get; set; }
         public virtual MainCategory MainCategory { get; set; }
         public virtual ICollection<Product> Products{ get; set; }
     }
