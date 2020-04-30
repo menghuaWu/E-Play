@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VS_Web_project\\E-Play\\E-Play\\E-Play.csproj": {}
+    "D:\\PG\\asp_workspace\\E-Play\\E-Play\\E-Play.csproj": {}
   },
   "projects": {
-    "D:\\VS_Web_project\\E-Play\\E-Play\\E-Play.csproj": {
+    "D:\\PG\\asp_workspace\\E-Play\\E-Play\\E-Play.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VS_Web_project\\E-Play\\E-Play\\E-Play.csproj",
+        "projectUniqueName": "D:\\PG\\asp_workspace\\E-Play\\E-Play\\E-Play.csproj",
         "projectName": "E-Play",
-        "projectPath": "D:\\VS_Web_project\\E-Play\\E-Play\\E-Play.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "D:\\VS_Web_project\\E-Play\\E-Play\\obj\\",
+        "projectPath": "D:\\PG\\asp_workspace\\E-Play\\E-Play\\E-Play.csproj",
+        "packagesPath": "C:\\Users\\boy19\\.nuget\\packages\\",
+        "outputPath": "D:\\PG\\asp_workspace\\E-Play\\E-Play\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\boy19\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
