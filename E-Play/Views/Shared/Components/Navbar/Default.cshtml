@@ -1,4 +1,6 @@
-﻿<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+﻿@model IEnumerable<E_Play.Data.MainCategory>
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container">
         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">E_Play</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -7,12 +9,19 @@
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
             <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Privacy">Privacy</a>
-                </li>
+                @foreach (var item in Model)
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" >@item.Name</a>
+                        <div class="dropdown-menu">
+                            @foreach (var subitem in @item.SubCategories)
+                            {
+                                <a class="dropdown-item" asp-controller="Category" asp-action="GetBySubCategory" asp-area="@subitem.Id">@subitem.Name</a>
+                            }
+                        </div>
+                    </li>
+                }
+                <partial name="_LoginPartial" />
             </ul>
         </div>
     </div>

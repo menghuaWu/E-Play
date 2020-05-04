@@ -26,9 +26,12 @@ namespace E_Play
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            //services.AddControllersWithViews();
+            services.AddMvc(option=>option.EnableEndpointRouting = false);
             services.AddDbContext<ShopDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ShopDbContext")));
             services.AddTransient<IMainCategoryRepository, MainCategoryRepository>();
+            services.AddTransient<ISubCategoryRepository, SubCategoryRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,13 +53,14 @@ namespace E_Play
             app.UseRouting();
 
             app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseAuthentication();
+            app.UseMvc(route => route.MapRoute("default", "{controller=Home}/{action=Index}/{id?}"));
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute(
+            //        name: "default",
+            //        pattern: "{controller=Home}/{action=Index}/{id?}");
+            //});
         }
     }
 }

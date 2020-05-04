@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace E_Play.Repository
@@ -15,12 +16,18 @@ namespace E_Play.Repository
         }
         public override bool AddMainCategory(MainCategory mainCategory)
         {
-            throw new NotImplementedException();
+            _context.MainCategories.Add(mainCategory);
+            _context.SaveChanges();
+            return true;
         }
 
         public override void DeleteCategoryById(int id)
         {
-            throw new NotImplementedException();
+            var cid = _context.MainCategories.Single(m=>m.Id == id);
+            _context.Entry(cid).Collection(m => m.SubCategories).Load();
+            _context.SubCategories.RemoveRange(cid.SubCategories);
+            _context.MainCategories.Remove(cid);
+            _context.SaveChanges();
         }
 
         public override void DeleteCategoryByName(string Name)
@@ -30,7 +37,7 @@ namespace E_Play.Repository
 
         public override IEnumerable<MainCategory> GetAll()
         {
-            return _context.MainCategories.ToList();
+            return _context.MainCategories.Include(m=>m.SubCategories).ToList();
 
         }
 

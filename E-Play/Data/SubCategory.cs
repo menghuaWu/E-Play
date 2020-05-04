@@ -12,7 +12,7 @@ namespace E_Play.Data
 {
     public class SubCategory
     {
-        [Key]
+   
         [DisplayName("編號")]
         public int Id { get; set; }
 

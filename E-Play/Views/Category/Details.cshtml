@@ -1,0 +1,29 @@
+﻿@model IEnumerable<E_Play.Data.SubCategory>
+
+@{
+    ViewData["Title"] = "細項";
+    var idx = ViewBag.MainId; 
+}
+
+<h1>細項</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        @foreach (var item in Model)
+        {
+            <dt class="col-sm-2">
+                <label>@item.Name</label>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.ActionLink("Edit", "Edit", "SubCategory", new {  id = @item.Id  }) |
+                @Html.ActionLink("Delete", "Delete", "SubCategory", new { id = @item.Id }, new { @onclick="return confirm('是否要刪除 ?');" })
+            </dd>
+        }
+
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Create", "CreateSub", "SubCategory", new { id = idx }) |
+    <a asp-action="Index">Back to List</a>
+</div>
